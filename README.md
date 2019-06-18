@@ -3,8 +3,8 @@
 ## Table of Contents
 
 * [Description](#description)
-* [Implementation](#implementation)
 * [Instructions](#instructions)
+* [Implementation](#implementation)
 
 ## Description
 
@@ -39,11 +39,11 @@ In that case the game is reloaded with freshly shuffled card deck and all the co
 The app is implemented as a client side JS app. It is enough to download the full zip package (or clone the GitHub project) and run index.html
 
 
-## Implementation (to be replaced by JS doc or similar)
+## Implementation
 
-All JS code is placed in the js/app2.js file and it is decently documented.
+Note: This text is to be replaced with JSDoc or similar.
 
-The code is organized in the following functions:
+All JS code is placed in the js/app2.js file and it is decently documented. The code is organized in the following functions:
 
 function shuffle(array)  - randomizes the initial deck of cards
 function handleCardClick(evt) - the main function that has the *matching* logic implemented
@@ -54,5 +54,3 @@ function createCardDecksHtmlLayout(cards) - the function *builds* a HTML represe
 function init() - the function initializes the game (shuffles the cards and adds event listeners)
 
 
-
-The 
