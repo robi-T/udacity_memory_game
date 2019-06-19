@@ -116,8 +116,8 @@ const handleCardClick = (evt) => {
         ) {
           // if two cards match...
           // display the card pair as matched
-          openCards[0].classList.add("card", "match");
-          openCards[1].classList.add("card", "match");
+          openCards[0].classList.add("card", "match", "animate", "heartBeat");
+          openCards[1].classList.add("card", "match", "animate", "heartBeat");
 
           // remove open and show classes from the matched pair
           openCards[0].classList.remove("open", "show");
