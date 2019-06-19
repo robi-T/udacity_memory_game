@@ -30,7 +30,7 @@ let rating = 5;
 
 // The function will create each card's HTML <li>:s and <i>:s and add them to the page under the <ul> deck
 
-function createCardDecksHtmlLayout(myCards) {
+const createCardDecksHtmlLayout = (myCards) => {
   const fragment = document.createDocumentFragment();
   let index = 0;
   let deck = document.querySelector(".deck");
@@ -54,10 +54,10 @@ function createCardDecksHtmlLayout(myCards) {
 
   // at this point li/i fragment should be built - add it to the .document ul (deck) element
   document.querySelector(".deck").appendChild(fragment);
-}
+};
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
+const shuffle = (array) => {
   var currentIndex = array.length,
     temporaryValue,
     randomIndex;
@@ -71,10 +71,10 @@ function shuffle(array) {
   }
 
   return array;
-}
+};
 
 // The function handles click events that are triggered by either <li> element
-function handleCardClick(evt) {
+const handleCardClick = (evt) => {
   let openCards = []; // the array of open (but not matched) cards
 
   if (evt.target.nodeName === "LI") {
@@ -145,9 +145,9 @@ function handleCardClick(evt) {
 
   checkWinningConditions();
   handleRating();
-}
+};
 
-function checkWinningConditions() {
+const checkWinningConditions = () => {
   // if 16 cards have the class "match", we're done with the game
   if (document.querySelectorAll(".match").length == 16) {
     setTimeout(function() {
@@ -211,7 +211,7 @@ function checkWinningConditions() {
       }
     }, 200);
   }
-}
+};
 
 /**
  * Game elapsed time
@@ -221,19 +221,19 @@ let sec = 0;
 let min = 0;
 let myTimerVar = null;
 
-function myTimer() {
+const myTimer = () => {
   myTimerVar = setInterval(counterFunc, 1000);
   return myTimerVar;
-}
+};
 
-function counterFunc() {
+const counterFunc = () => {
   intervalCounter++;
 
   min = parseInt(intervalCounter / 60);
   sec = intervalCounter % 60;
 
   document.querySelector(".timer").innerText = `Time elapsed: ${min}:${sec}`;
-}
+};
 
 /**
  * Function calculates and displays the *rating*. We start with 5 starts and remove a star for every 10 clicks starting from 25 clicks.
@@ -241,7 +241,7 @@ function counterFunc() {
  *
  */
 
-function handleRating() {
+const handleRating = () => {
   if (numOfCardClicks == 25) {
     document.querySelector(".stars").lastElementChild.remove();
     rating--;
@@ -255,12 +255,12 @@ function handleRating() {
     document.querySelector(".stars").lastElementChild.remove();
     rating--;
   }
-}
+};
 
 /**
  * Function init() prepares the initial deck and add's event listeners
  */
-function init() {
+const init = () => {
   createCardDecksHtmlLayout(shuffle(cards)); // display the shuffled deck of cards
 
   // delegate events to the parent element .deck
@@ -270,6 +270,6 @@ function init() {
   document.querySelector(".restart").addEventListener("click", function() {
     window.location.reload(false);
   });
-}
+};
 
 init();
